@@ -16,7 +16,6 @@ public class TestListener {
 
     @EventSubscriber
     public void onReadyEvent(ReadyEvent event) throws RateLimitException, MissingPermissionsException {
-        //Discord4J.disableChannelWarnings();
         System.out.println("Logged in as " + event.getClient().getOurUser().getName());
         event.getClient().getGuilds()
                 .forEach(guild -> {
