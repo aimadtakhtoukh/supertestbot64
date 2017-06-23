@@ -8,7 +8,6 @@ import sx.blah.discord.Discord4J;
 public class DicerollbotApplication {
 
 	public static void main(String[] args) {
-        Discord4J.disableChannelWarnings();
 		SpringApplication.run(DicerollbotApplication.class, args);
 	}
 }
