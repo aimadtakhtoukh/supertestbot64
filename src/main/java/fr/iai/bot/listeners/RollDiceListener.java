@@ -1,6 +1,7 @@
 package fr.iai.bot.listeners;
 
 import fr.iai.bot.listeners.annotation.Listener;
+import fr.iai.bot.listeners.utils.DiscordMessageGenerator;
 import org.apache.log4j.Logger;
 import sx.blah.discord.api.events.EventSubscriber;
 import sx.blah.discord.handle.impl.events.guild.channel.message.MentionEvent;
@@ -32,14 +33,19 @@ public class RollDiceListener {
             if (diceMatcher.matches()) {
                 int number = Integer.parseInt(diceMatcher.group("number"));
                 int faces = Integer.parseInt(diceMatcher.group("faces"));
-                new MessageBuilder(event.getClient())
-                        .withChannel(channel)
-                        //.withContent( (number <= 1 ? number + " dé" : number + " dés") + " à " + faces + " faces?")
-                        .withContent(explainResults(randomResults(number, faces)))
-                        .build();
+                DiscordMessageGenerator.sendMessage(
+                        event.getClient(),
+                        channel,
+                        explainResults(randomResults(number, faces))
+                );
+            } else {
+                DiscordMessageGenerator.sendMessage(
+                        event.getClient(), channel,
+                        "Il y a un problème avec l'entrée.");
             }
-        } catch (DiscordException | RateLimitException | MissingPermissionsException e) {
+        } catch (DiscordException | MissingPermissionsException | RateLimitException | NumberFormatException e) {
             logger.error(e);
+            DiscordMessageGenerator.sendMessage(event.getClient(), channel, e.toString());
         }
         logger.info(event.getMessage());
     }
