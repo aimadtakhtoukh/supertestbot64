@@ -38,10 +38,6 @@ public class RollDiceListener {
                         channel,
                         explainResults(randomResults(number, faces))
                 );
-            } else {
-                DiscordMessageGenerator.sendMessage(
-                        event.getClient(), channel,
-                        "Il y a un problème avec l'entrée.");
             }
         } catch (DiscordException | MissingPermissionsException | RateLimitException | NumberFormatException e) {
             logger.error(e);
