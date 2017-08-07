@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DicerollbotApplication {
+public class BotLauncherApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DicerollbotApplication.class, args);
+		SpringApplication.run(BotLauncherApplication.class, args);
 	}
 }
