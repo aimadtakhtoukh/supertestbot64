@@ -28,7 +28,7 @@ public class RollDiceListener {
         IMessage message = event.getMessage();
         IChannel channel = message.getChannel();
         try {
-            String content = message.getContent().replaceAll("<@.*?> ", "");
+            String content = message.getContent().replaceAll("<@.*?> ", "").trim();
             Matcher diceMatcher = dicePattern.matcher(content);
             if (diceMatcher.matches()) {
                 int number = Integer.parseInt(diceMatcher.group("number"));

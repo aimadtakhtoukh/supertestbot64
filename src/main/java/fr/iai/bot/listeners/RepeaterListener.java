@@ -9,7 +9,7 @@ import sx.blah.discord.handle.obj.IChannel;
 import sx.blah.discord.handle.obj.IMessage;
 import sx.blah.discord.util.*;
 
-@Listener
+//@Listener
 public class RepeaterListener {
     private static Logger logger = Logger.getLogger(RepeaterListener.class);
 
