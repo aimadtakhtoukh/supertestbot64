@@ -1,6 +1,8 @@
 target/
 .mvn
 modules
-
+# IntelliJ files
 .idea
 *.iml
+# Environment file
+env.list
